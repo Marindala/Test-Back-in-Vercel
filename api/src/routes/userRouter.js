@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {getAllUsers, getUserByName } = require ('../controllers/getUsers')
+const {getAllUsers, getUserByName, postUser } = require ('../controllers/getUsers')
 const router = Router();
 
 
@@ -15,6 +15,10 @@ router.get('/', (req, res) => {
         return res.status(200).json(allUsers);
     }
     
+})
+
+router.post('/', (req, res) => {
+    const {name, mail, username} = req.body;
 })
 
 

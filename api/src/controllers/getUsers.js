@@ -10,7 +10,17 @@ const getUserByName = (name) => {
     //retorna un objeto con una propiedad error
 }
 
+const postUser = (name, mail, username) => {
+    const newUser = {
+        name,
+        mail,
+        username
+    }
+
+}
+
 module.exports = {
     getAllUsers,
-    getUserByName
+    getUserByName,
+    postUser
 }  
