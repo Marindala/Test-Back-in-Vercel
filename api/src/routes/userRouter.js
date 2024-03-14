@@ -19,6 +19,20 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const {name, mail, username} = req.body;
+
+    try {
+        if(!name || !mail || !username) throw Error ('Me faltan datos corazón') 
+    
+        else{
+            const newUser= postUser(name, mail, username);
+            return res.status(200).json(newUser);
+
+    }
+        
+    } catch (error) {
+        return res.status(404).send(error.message);
+        
+    }
 })
 
 

@@ -10,12 +10,17 @@ const getUserByName = (name) => {
     //retorna un objeto con una propiedad error
 }
 
+let id = 1;
 const postUser = (name, mail, username) => {
     const newUser = {
         name,
         mail,
-        username
+        username,
+        id: id++,
+        post: []
     }
+    users.push(newUser);
+    return newUser;
 
 }
 
