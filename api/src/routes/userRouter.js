@@ -38,7 +38,13 @@ router.post('/', (req, res) => {
 router.put('/', (req, res) =>{
     const {id, name, mail, username} = req.body;
     const userFind = user.find((user) => user.id === id)
-
+    if(!userFind) return {error: "Usuario no encontrado"}
+    else{
+        if(name) userFind.name = name;
+        if(mail) userFind.mail = mail;
+        if(username) userFind.username = username;
+    }
+    return userFind;
 });
 
 
