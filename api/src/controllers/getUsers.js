@@ -24,6 +24,10 @@ const postUser = (name, mail, username) => {
 
 }
 
+const updateUser = (id, name, mail, username) => {
+
+}
+
 module.exports = {
     getAllUsers,
     getUserByName,

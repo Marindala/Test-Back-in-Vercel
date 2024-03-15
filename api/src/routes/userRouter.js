@@ -35,6 +35,12 @@ router.post('/', (req, res) => {
     }
 })
 
+router.put('/', (req, res) =>{
+    const {id, name, mail, username} = req.body;
+    const userFind = user.find((user) => user.id === id)
+
+});
+
 
 
 module.exports = router;
