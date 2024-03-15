@@ -25,11 +25,21 @@ const postUser = (name, mail, username) => {
 }
 
 const updateUser = (id, name, mail, username) => {
+    const userFind = users.find((user) => user.id === id)
+    if(!userFind) return {error: "Usuario no encontrado"}
+    else{
+        if(name) userFind.name = name;
+        if(mail) userFind.mail = mail;
+        if(username) userFind.username = username;
+    }
+    return userFind;
+
 
 }
 
 module.exports = {
     getAllUsers,
     getUserByName,
-    postUser
+    postUser,
+    updateUser
 }  

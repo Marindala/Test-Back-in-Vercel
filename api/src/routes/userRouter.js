@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {getAllUsers, getUserByName, postUser } = require ('../controllers/getUsers')
+const {getAllUsers, getUserByName, postUser, updateUser } = require ('../controllers/getUsers')
 const router = Router();
 
 
@@ -35,16 +35,16 @@ router.post('/', (req, res) => {
     }
 })
 
-router.put('/', (req, res) =>{
+router.put('/', (req, res) => {
     const {id, name, mail, username} = req.body;
-    const userFind = user.find((user) => user.id === id)
-    if(!userFind) return {error: "Usuario no encontrado"}
-    else{
-        if(name) userFind.name = name;
-        if(mail) userFind.mail = mail;
-        if(username) userFind.username = username;
-    }
-    return userFind;
+    if(id && name || mail || username){ //id y name en true si o si //lo demas es optativo
+        const userModify = updateUser(id, name, mail, username);
+
+        if(userModify.error) return res.status(404).json(userModify);
+        return res.status(200).json(userModify);
+
+    } 
+   
 });
 
 
