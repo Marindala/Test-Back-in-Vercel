@@ -37,9 +37,16 @@ const updateUser = (id, name, mail, username) => {
 
 }
 
+
+const deleteUser = (id) => {
+    const userFind = users.find((user) => user.id === id);
+
+}
+
 module.exports = {
     getAllUsers,
     getUserByName,
     postUser,
-    updateUser
+    updateUser,
+    deleteUser
 }  

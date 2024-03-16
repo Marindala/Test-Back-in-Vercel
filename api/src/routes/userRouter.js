@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {getAllUsers, getUserByName, postUser, updateUser } = require ('../controllers/getUsers')
+const {getAllUsers, getUserByName, postUser, updateUser, deleteUser } = require ('../controllers/getUsers')
 const router = Router();
 
 
@@ -47,8 +47,9 @@ router.put('/', (req, res) => {
    
 });
 
-router.delete('/', (req, res) => {
-    
+router.delete('/:id', (req, res) => {
+    const {id} = req.params;
+
 })  
 
 
