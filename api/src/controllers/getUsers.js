@@ -41,6 +41,13 @@ const updateUser = (id, name, mail, username) => {
 const deleteUser = (id) => {
     const userFind = users.find((user) => user.id === id);
 
+    if(!userFind) return {error: "Usuario no encontrado"}
+    else {
+        users = users.filter((user) => user.id === id);
+
+    }
+    return users;
+
 }
 
 module.exports = {
