@@ -21,6 +21,10 @@ router.get("/", (req, res) => {
   }
 });
 
+router.get('/:id', (req, res) => {
+    const {id} = req.params;
+})
+
 router.post("/", (req, res) => {
   const { name, mail, username } = req.body;
 
@@ -52,7 +56,7 @@ router.delete("/:id", (req, res) => {
   if (id) {
     const userDelete = deleteUser(id); //llega id por parametro ejecuta controller pasando id como argumento
     if (userDelete.error) return res.status(404).json(userDelete);
-    return res.status(200).json({ message: "Usuario Eliminado" });
+    return res.status(200).json({message: "Usuario Eliminado" });
   } else {
   }
 });
