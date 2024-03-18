@@ -2,6 +2,7 @@ const { Router } = require("express");
 const {
   getAllUsers,
   getUserByName,
+  getUserByid,
   postUser,
   updateUser,
   deleteUser,

@@ -10,6 +10,13 @@ const getUserByName = (name) => {
     //retorna un objeto con una propiedad error
 }
 
+const getUserByid = (id) => {
+    const userFind = users.find((user) => user.id === id);
+    if(!userFind) return {error: `Usuario no existe con id: ${id}`}
+    return userFind;
+    
+}
+
 let id = 1;
 const postUser = (name, mail, username) => {
     const newUser = {
@@ -53,6 +60,7 @@ const deleteUser = (id) => {
 module.exports = {
     getAllUsers,
     getUserByName,
+    getUserByid,
     postUser,
     updateUser,
     deleteUser
