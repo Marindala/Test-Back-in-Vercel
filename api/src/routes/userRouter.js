@@ -22,9 +22,17 @@ router.get("/", (req, res) => {
   }
 });
 
-router.get('/:id', (req, res) => {
-    const {id} = req.params;
-})
+router.get("/:id", (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = getUserByid(id);
+    if (user["error"]) throw Error(user.error); //si el usuario tiene una propiedad error
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(404).send(error.message);
+  }
+});
 
 router.post("/", (req, res) => {
   const { name, mail, username } = req.body;
@@ -57,7 +65,7 @@ router.delete("/:id", (req, res) => {
   if (id) {
     const userDelete = deleteUser(id); //llega id por parametro ejecuta controller pasando id como argumento
     if (userDelete.error) return res.status(404).json(userDelete);
-    return res.status(200).json({message: "Usuario Eliminado" });
+    return res.status(200).json({ message: "Usuario Eliminado" });
   } else {
   }
 });
