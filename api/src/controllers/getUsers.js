@@ -1,5 +1,5 @@
 let users = [];
-let posteos = [];
+
 
 const getAllUsers = () => users;
 
