@@ -24,7 +24,7 @@ const postUser = (name, mail, username) => {
         mail,
         username,
         id: id++,
-        post: []
+        post: [] //property post
     }
     users.push(newUser);
     return newUser;
