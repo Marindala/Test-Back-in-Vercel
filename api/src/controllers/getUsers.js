@@ -58,7 +58,6 @@ const deleteUser = (id) => {
 }
 
 module.exports = {
-    users,
     getAllUsers,
     getUserByName,
     getUserByid,

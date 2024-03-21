@@ -1,22 +1,34 @@
-const users = require ('./getUsers.js')
+const { getAllUsers } = require("./getUsers.js");
+
 let posteos = [];
 
 let postId = 1;
-const postPosteos = (userId, title, content) => {
 
-  //create a new post object
+const postPosteos = (userId, title, content) => {
+  // Crear un nuevo objeto de post
   const newPost = {
     userId,
     title,
     content,
     id: postId++,
   };
-  posteos.push(newPost); //push the new post to the array of posteos
 
-  const findUser = users.find((user) => user.id === userId) //busca usuario en array de usuario y que machee con el id del post de usuarios
+  // Agregar el nuevo post al array de posteos
+  posteos.push(newPost);
 
-  findUser.post.push(newPost)
+  const users = getAllUsers();
+
+  // Encontrar al usuario correspondiente
+  const findUser = users.find((user) => user.id === userId);
+
+  // Verificar si el usuario existe
+  if (findUser) {
+    findUser.post.push(newPost);
+  }
+
   return newPost;
 };
 
-module.exports = {postPosteos};
+module.exports = {
+  postPosteos,
+};

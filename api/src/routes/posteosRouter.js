@@ -1,10 +1,10 @@
-const { Router } = require("express");
+const { Router } = require('express');
 const { postPosteos } = require("../controllers/posteos.js");
-const router = Router();
+const routerPosteos = Router();
 
-router.post("/", (req, res) => {
+routerPosteos.post("/", (req, res) => {
   try {
-    const { userId, title, content } = req.body;
+    const {userId, title, content} = req.body;
 
     if (!userId || !title || !content) throw Error("Me faltan datos Rey");
     else {
@@ -16,4 +16,4 @@ router.post("/", (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = routerPosteos;
