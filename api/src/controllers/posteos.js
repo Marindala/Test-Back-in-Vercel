@@ -1,4 +1,4 @@
-const users = require ('./users')
+const users = require ('./getUsers.js')
 let posteos = [];
 
 let postId = 1;
