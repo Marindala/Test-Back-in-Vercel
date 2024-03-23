@@ -23,7 +23,7 @@ const postPosteos = (userId, title, content) => {
 
   // Verificar si el usuario existe
   if (findUser) {
-    findUser.post.push(newPost);
+    findUser.post.push(newPost); //findUser con una propiedad post
   }
 
   return newPost;
